@@ -1,0 +1,50 @@
+<template>
+  <lightning-card title="Dodaj studenta" icon-name="standard:record">
+    <div class="slds-m-around_medium">
+      <lightning-input
+        label="Ime"
+        onchange={handleChange}
+        class="slds-m-bottom_x-small"
+      ></lightning-input>
+      <lightning-input
+        label="Prezime"
+        onchange={handleChange}
+        class="slds-m-bottom_x-small"
+      ></lightning-input>
+      <lightning-input
+        type="number"
+        maxlength="13"
+        label="EMŠO"
+        onchange={handleChange}
+        class="slds-m-bottom_x-small"
+      ></lightning-input>
+      <lightning-combobox
+        class="slds-m-bottom_small"
+        name="studij"
+        label="Vrsta studija"
+        value={value}
+        placeholder="Odaberi vrstu studija"
+        options={options}
+        onchange={handleChange}
+      >
+      </lightning-combobox>
+      <template if:true={vanredni}>
+        <lightning-input
+          type="checkbox"
+          class="slds-m-bottom_x-small"
+          label="Uplatitelj"
+        ></lightning-input>
+      </template>
+      <lightning-button
+        label="Dodaj studenta"
+        variant="brand"
+        onclick={dodajStudenta}
+      ></lightning-button>
+      <lightning-button
+        label="Provjeri EMS"
+        variant="brand"
+        onclick={validateInput}
+      ></lightning-button>
+    </div>
+  </lightning-card>
+</template>
